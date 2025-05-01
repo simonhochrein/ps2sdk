@@ -343,7 +343,9 @@ static TokenTree *make_conf_vector(LowToken **lowtokens)
 		}
 		else
 		{
-			if ( *ltp->str != '@' && *ltp->str != '.' && *ltp->str != '_' && *ltp->str != '*' && isalnum(*ltp->str) == 0 )
+			if (
+				*ltp->str != '@' && *ltp->str != '.' && *ltp->str != '_' && *ltp->str != '*'
+				&& isalnum(*((unsigned *)ltp->str)) == 0 )
 			{
 				fprintf(stderr, "make_conf_vector(): unexcepted data '%s' line:%d col=%d\n", ltp->str, ltp->line, ltp->col);
 				exit(1);
